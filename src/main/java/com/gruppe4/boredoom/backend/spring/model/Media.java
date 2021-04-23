@@ -3,15 +3,10 @@ package com.gruppe4.boredoom.backend.spring.model;
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
 import com.gruppe4.boredoom.backend.spring.model.enums.Setting;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import java.util.List;
 
-@MappedSuperclass
 public abstract class Media {
 
-    @Id
     private long id;
     private String name;
     private String description;
@@ -25,7 +20,6 @@ public abstract class Media {
     private int durationMin; // in Stunden
     private int durationMax; // in Stunden
 
-    @ElementCollection
     private List<ActivityType> activityTypes;
     private Setting setting;
 
