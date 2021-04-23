@@ -4,17 +4,12 @@ import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
 import com.gruppe4.boredoom.backend.spring.model.enums.MovieGenre;
 import com.gruppe4.boredoom.backend.spring.model.enums.Setting;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
 import java.util.List;
 
-@Entity
 public class Movie extends Media {
 
     private MovieGenre movieGenre;
     private String director;
-
-    @ElementCollection
     private List<String> mainActors;
     private int duration; // in minutes
 

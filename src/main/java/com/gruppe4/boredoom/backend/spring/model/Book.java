@@ -10,7 +10,7 @@ public class Book extends Media {
 
     private String author;
     private BookGenre bookGenre;
-    private int pageCount;
+    private Integer pageCount;
 
     public Book() {}
 
@@ -47,11 +47,11 @@ public class Book extends Media {
         this.bookGenre = bookGenre;
     }
 
-    public int getPageCount() {
+    public Integer getPageCount() {
         return pageCount;
     }
 
-    public void setPageCount(int pageCount) {
+    public void setPageCount(Integer pageCount) {
         this.pageCount = pageCount;
     }
 }
