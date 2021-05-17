@@ -12,6 +12,6 @@ public interface UserRepository {
 
     void saveUser(User user);
 
-    boolean existsById(String id);
+    boolean existsByUsername(String username);
 
 }

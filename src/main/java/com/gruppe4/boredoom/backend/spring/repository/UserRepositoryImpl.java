@@ -1,6 +1,8 @@
 package com.gruppe4.boredoom.backend.spring.repository;
 
 import com.gruppe4.boredoom.backend.spring.model.user.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -12,6 +14,9 @@ import java.util.List;
 public class UserRepositoryImpl implements UserRepository {
 
     List<User> users = generateUserList();
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public User findUserById(String id) {
@@ -35,9 +40,9 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public boolean existsById(String id) {
+    public boolean existsByUsername(String username) {
         for (User user : users) {
-            if (user.getUserName().equals(id)) {
+            if (user.getUserName().equals(username)) {
                 return true;
             }
         }
