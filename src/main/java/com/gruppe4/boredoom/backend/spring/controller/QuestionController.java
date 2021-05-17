@@ -3,7 +3,6 @@ package com.gruppe4.boredoom.backend.spring.controller;
 import com.gruppe4.boredoom.backend.spring.model.Question;
 import com.gruppe4.boredoom.backend.spring.repository.QuestionRepository;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

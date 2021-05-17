@@ -2,9 +2,7 @@ package com.gruppe4.boredoom.backend.spring.repository;
 
 import com.gruppe4.boredoom.backend.spring.model.Question;
 import com.gruppe4.boredoom.backend.spring.model.enums.QuestionType;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,8 +21,7 @@ public class QuestionRepository extends Repository{
 
         String sqlSelectAllQuestions = "SELECT q.*, qt.question_type FROM question q JOIN question_type qt ON q.question_type_id " +
                 "= qt.id";
-        var questions =executeSql(sqlSelectAllQuestions, this::transformQuestion);
-        return questions;
+        return executeSql(sqlSelectAllQuestions, this::transformQuestion);
     }
 
     private Question transformQuestion(ResultSet rs) {

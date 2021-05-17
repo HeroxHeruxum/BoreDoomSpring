@@ -8,7 +8,7 @@ public enum QuestionType {
 
     private String name;
 
-    QuestionType(String name) {
+     QuestionType(String name) {
         this.name = name;
     }
 
