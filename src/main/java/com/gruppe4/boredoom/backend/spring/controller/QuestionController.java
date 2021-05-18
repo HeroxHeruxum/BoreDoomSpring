@@ -2,6 +2,7 @@ package com.gruppe4.boredoom.backend.spring.controller;
 
 import com.gruppe4.boredoom.backend.spring.model.Question;
 import com.gruppe4.boredoom.backend.spring.repository.QuestionRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,7 @@ public class QuestionController {
         this.questionRepository = questionRepository;
     }
 
+    @CrossOrigin("*")
     @GetMapping(value = "/question")
     public List<Question> getAll() {
         return questionRepository.getAll();
