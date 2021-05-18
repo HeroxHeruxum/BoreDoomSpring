@@ -23,9 +23,13 @@ public class MovieRepositoryImpl implements MovieRepository {
     }
 
     @Override
-    // TODO: Query fehlt noch
     public List<Movie> findAll() {
-        return null;
+        List<Movie> movies = jdbcTemplate.query("SELECT m.*, d.full_name, s.setting from movie m" +
+                "  JOIN director d on (m.director_id = d.id)" +
+                "  JOIN setting s on (m.setting_id = s.id)", movieMapper);
+
+        movies.forEach(m -> mapMovieTables(m));
+        return movies;
     }
 
     @Override
@@ -67,7 +71,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 
     @Override
     public List<Movie> findMoviesForUser(String username) {
-        List<Movie> movies = jdbcTemplate.query("SELECT m.*, d.first_name, s.setting from movie m" +
+        List<Movie> movies = jdbcTemplate.query("SELECT m.*, d.full_name, s.setting from movie m" +
                 "  JOIN director d on (m.director_id = d.id)" +
                 "  JOIN setting s on (m.setting_id = s.id)" +
                 "  JOIN user2movie u2m on (m.id = u2m.movie_id)" +

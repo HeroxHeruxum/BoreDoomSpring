@@ -19,7 +19,7 @@ public class BookMapper extends MediaMapper implements RowMapper<Book> {
 
         book.setBookGenre(Collections.emptyList());  // Needs to be queried separately
         book.setPageCount(rs.getInt("page_count"));
-        book.setAuthor(rs.getString("first_name")); //TODO: fullname
+        book.setAuthor(rs.getString("full_name")); //TODO: fullname
 
         return book;
     }

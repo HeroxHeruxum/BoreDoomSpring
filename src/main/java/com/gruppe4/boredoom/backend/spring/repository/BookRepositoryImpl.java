@@ -23,7 +23,9 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public List<Book> findAll() {
-        List<Book> books = jdbcTemplate.query("SELECT * from book", bookMapper);
+        List<Book> books = jdbcTemplate.query("SELECT b.*, a.full_name, s.setting from book b" +
+                "  JOIN author a on (b.author_id = a.id)" +
+                "  JOIN setting s on (b.setting_id = s.id);", bookMapper);
 
         for (Book book : books) {
             mapBookTables(book);
@@ -62,7 +64,7 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public List<Book> getBooksForUser(String username) {
-        List<Book> books = jdbcTemplate.query("SELECT b.*, a.first_name, s.setting from book b" +
+        List<Book> books = jdbcTemplate.query("SELECT b.*, a.full_name, s.setting from book b" +
                 "  JOIN author a on (b.author_id = a.id)" +
                 "  JOIN setting s on (b.setting_id = s.id)" +
                 "  JOIN user2book u2b on (b.id = u2b.book_id)" +

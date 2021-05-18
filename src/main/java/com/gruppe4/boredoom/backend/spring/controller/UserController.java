@@ -9,6 +9,7 @@ import com.gruppe4.boredoom.backend.spring.model.user.User;
 import com.gruppe4.boredoom.backend.spring.model.user.UserLoginData;
 import com.gruppe4.boredoom.backend.spring.model.user.UserRegistrationData;
 import com.gruppe4.boredoom.backend.spring.repository.BookRepository;
+import com.gruppe4.boredoom.backend.spring.repository.MovieRepository;
 import com.gruppe4.boredoom.backend.spring.repository.UserRepository;
 import com.gruppe4.boredoom.backend.spring.service.user.UserLoginService;
 import com.gruppe4.boredoom.backend.spring.service.user.UserRegistrationService;
@@ -31,6 +32,9 @@ public class UserController {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private MovieRepository movieRepository;
 
     private final UserLoginService userLoginService;
     private final UserRegistrationService userRegistrationService;
@@ -73,7 +77,7 @@ public class UserController {
         return (authentication instanceof UsernamePasswordAuthenticationToken) && authentication.isAuthenticated();
     }
 
-    @GetMapping("/user/books")
+    @GetMapping("/user/favorites/books")
     public ResponseEntity<List<Book>> getUserBooks() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -83,7 +87,7 @@ public class UserController {
         return new ResponseEntity<>(userRepository.findUserBooksByUsername(user.getUserName()), HttpStatus.OK);
     }
 
-    @GetMapping("/user/movies")
+    @GetMapping("/user/favorites/movies")
     public ResponseEntity<List<Movie>> getUserMovies() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -93,7 +97,7 @@ public class UserController {
         return new ResponseEntity<>(userRepository.findUserMoviesByUsername(user.getUserName()), HttpStatus.OK);
     }
 
-    @GetMapping("/user/favorites")
+    @GetMapping("/user/favorites/all")
     public ResponseEntity<List<Media>> getUserFavorites() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -103,7 +107,7 @@ public class UserController {
         return new ResponseEntity<>(userRepository.findFavoritesByUsername(user.getUserName()), HttpStatus.OK);
     }
 
-    @GetMapping("/user")
+    @GetMapping("/user/data")
     public ResponseEntity<User> getUserData() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -113,11 +117,4 @@ public class UserController {
 
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
-    @GetMapping("/test")
-    public String test() {
-        List<User> users = userRepository.getAllUser();
-        return "hi";
-    }
-
 }
