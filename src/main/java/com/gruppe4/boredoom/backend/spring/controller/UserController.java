@@ -6,6 +6,7 @@ import com.gruppe4.boredoom.backend.spring.error.UserRegistrationException;
 import com.gruppe4.boredoom.backend.spring.model.Book;
 import com.gruppe4.boredoom.backend.spring.model.Media;
 import com.gruppe4.boredoom.backend.spring.model.Movie;
+import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.user.User;
 import com.gruppe4.boredoom.backend.spring.model.user.UserLoginData;
 import com.gruppe4.boredoom.backend.spring.model.user.UserRegistrationData;
@@ -95,7 +96,7 @@ public class UserController {
         return new ResponseEntity<>(userRepository.findUserMoviesByUsername(user.getUserName()), HttpStatus.OK);
     }
 
-    @GetMapping("/user/favorites/all")
+    @GetMapping("/user/favorites/")
     public ResponseEntity<List<Media>> getUserFavorites() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -137,5 +138,15 @@ public class UserController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @PostMapping("/user/favorites/saveMedia")
+    public ResponseEntity<String> saveMedia(@RequestParam long mediaId, @RequestParam MediaType mediaType) {
+        try {
+            userRepository.saveFavoriteMedia(mediaId, mediaType);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (MediaSaveException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

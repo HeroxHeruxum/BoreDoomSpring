@@ -4,6 +4,7 @@ import com.gruppe4.boredoom.backend.spring.error.MediaSaveException;
 import com.gruppe4.boredoom.backend.spring.model.Book;
 import com.gruppe4.boredoom.backend.spring.model.Media;
 import com.gruppe4.boredoom.backend.spring.model.Movie;
+import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.user.User;
 import com.gruppe4.boredoom.backend.spring.repository.mapper.UserMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -95,6 +96,21 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void saveFavoriteMovie(long movieId) throws MediaSaveException {
         //TODO: implement
+    }
+
+    @Override
+    public void saveFavoriteMedia(long mediaId, MediaType mediaType) throws MediaSaveException {
+
+        switch (mediaType) {
+            case BOOK:
+                saveFavoriteBook(mediaId);
+                break;
+
+            case MOVIE:
+                saveFavoriteMovie(mediaId);
+                break;
+
+        }
     }
 
 }

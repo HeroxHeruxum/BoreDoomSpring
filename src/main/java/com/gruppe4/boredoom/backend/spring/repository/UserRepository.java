@@ -4,6 +4,7 @@ import com.gruppe4.boredoom.backend.spring.error.MediaSaveException;
 import com.gruppe4.boredoom.backend.spring.model.Book;
 import com.gruppe4.boredoom.backend.spring.model.Media;
 import com.gruppe4.boredoom.backend.spring.model.Movie;
+import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.user.User;
 
 import java.util.List;
@@ -27,5 +28,7 @@ public interface UserRepository {
     void saveFavoriteBook(long bookId) throws MediaSaveException;
 
     void saveFavoriteMovie(long bookId) throws MediaSaveException;
+
+    void saveFavoriteMedia(long mediaId, MediaType mediaType) throws MediaSaveException;
 
 }

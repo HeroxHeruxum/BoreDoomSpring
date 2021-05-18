@@ -4,6 +4,7 @@ import com.gruppe4.boredoom.backend.spring.error.MediaSaveException;
 import com.gruppe4.boredoom.backend.spring.model.Book;
 import com.gruppe4.boredoom.backend.spring.model.Media;
 import com.gruppe4.boredoom.backend.spring.model.Movie;
+import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.user.User;
 
 import java.util.ArrayList;
@@ -68,6 +69,11 @@ public class UserRepositoryMock implements UserRepository {
 
     @Override
     public void saveFavoriteMovie(long bookId) throws MediaSaveException {
+
+    }
+
+    @Override
+    public void saveFavoriteMedia(long mediaId, MediaType mediaType) throws MediaSaveException {
 
     }
 

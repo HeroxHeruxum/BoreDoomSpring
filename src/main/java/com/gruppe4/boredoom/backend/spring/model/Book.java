@@ -2,6 +2,7 @@ package com.gruppe4.boredoom.backend.spring.model;
 
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
 import com.gruppe4.boredoom.backend.spring.model.enums.BookGenre;
+import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.enums.Setting;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public class Book extends Media {
             int personCountMax, int durationMin, int durationMax, List<ActivityType> activityTypes, Setting setting, String author,
             List<BookGenre> bookGenre, int pageCount) {
 
-        super(id, name, description, imageUrl, publishingYear, minAge, personCountMin, personCountMax, durationMin, durationMax,
+        super(id, MediaType.BOOK, name, description, imageUrl, publishingYear, minAge, personCountMin, personCountMax,
+                durationMin, durationMax,
                 activityTypes, setting);
         this.author = author;
         this.bookGenre = bookGenre;

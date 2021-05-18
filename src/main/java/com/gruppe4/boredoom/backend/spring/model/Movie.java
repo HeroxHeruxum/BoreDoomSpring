@@ -1,6 +1,7 @@
 package com.gruppe4.boredoom.backend.spring.model;
 
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
+import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.enums.MovieGenre;
 import com.gruppe4.boredoom.backend.spring.model.enums.Setting;
 
@@ -27,7 +28,8 @@ public class Movie extends Media {
             List<ActivityType> activityTypes, Setting setting, List<MovieGenre> movieGenre, String director,
             List<String> mainActors, int duration) {
 
-        super(id, name, description, imageUrl, publishingYear, minAge, personCountMin, personCountMax, durationMin, durationMax,
+        super(id, MediaType.MOVIE, name, description, imageUrl, publishingYear, minAge, personCountMin, personCountMax,
+                durationMin, durationMax,
                 activityTypes, setting);
         this.movieGenre = movieGenre;
         this.director = director;
