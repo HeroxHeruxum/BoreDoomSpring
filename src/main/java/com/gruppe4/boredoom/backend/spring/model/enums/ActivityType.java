@@ -15,4 +15,13 @@ public enum ActivityType {
     ActivityType(String name) {
         this.name = name;
     }
+
+    public static ActivityType fromString(String text) {
+        for (ActivityType activityType : ActivityType.values()) {
+            if (activityType.name.equalsIgnoreCase(text)) {
+                return activityType;
+            }
+        }
+        return null;
+    }
 }

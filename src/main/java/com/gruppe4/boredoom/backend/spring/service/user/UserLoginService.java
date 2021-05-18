@@ -27,11 +27,11 @@ public class UserLoginService {
 
     public void loginUser(UserLoginData userLoginData) throws UserLoginException {
 
-        if (!userRepository.existsById(userLoginData.getUsername())) {
+        if (!userRepository.existsByUsername(userLoginData.getUsername())) {
             throw new UserLoginException("Username does not exist");
         }
 
-        User user = userRepository.findUserById(userLoginData.getUsername());
+        User user = userRepository.findUserByUsername(userLoginData.getUsername());
 
         if (!passwordEncoder.matches(userLoginData.getPassword(), user.getPassword())) {
             throw new UserLoginException("Invalid password");

@@ -49,6 +49,6 @@ public class UserRegistrationService {
     }
 
     private boolean userAlreadyExists(String username) {
-        return userRepository.existsById(username);
+        return userRepository.existsByUsername(username);
     }
 }

@@ -1,63 +1,89 @@
 package com.gruppe4.boredoom.backend.spring.repository;
 
+import com.gruppe4.boredoom.backend.spring.model.Book;
+import com.gruppe4.boredoom.backend.spring.model.Media;
+import com.gruppe4.boredoom.backend.spring.model.Movie;
 import com.gruppe4.boredoom.backend.spring.model.user.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.gruppe4.boredoom.backend.spring.repository.mapper.UserMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 
-    List<User> users = generateUserList();
+    private final JdbcTemplate jdbcTemplate;
+    private final UserMapper userMapper;
+    private final BookRepository bookRepository;
+    private final MovieRepository movieRepository;
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    public UserRepositoryImpl(JdbcTemplate jdbcTemplate, UserMapper userMapper,
+            BookRepository bookRepository,
+            MovieRepository movieRepository) {
+        this.jdbcTemplate = jdbcTemplate;
+        this.userMapper = userMapper;
+        this.bookRepository = bookRepository;
+        this.movieRepository = movieRepository;
+    }
 
     @Override
-    public User findUserById(String id) {
-        for (User user : users) {
-            if (user.getUserName().equals(id)) {
-                return user;
-            }
-        }
+    public User findUserByUsername(String username) {
 
-        return null;
+        User user = jdbcTemplate.queryForObject("SELECT * from user u where u.username = ?", userMapper, username);
+        user.setFavorites(findFavoritesByUsername(user.getUserName()));
+
+        return user;
     }
 
     @Override
     public List<User> getAllUser() {
+        List<User> users = jdbcTemplate.query("SELECT * from user;", userMapper);
+
+        for (User user : users) {
+            user.setFavorites(findFavoritesByUsername(user.getUserName()));
+        }
+
         return users;
     }
 
     @Override
     public void saveUser(User user) {
-        users.add(user);
+        jdbcTemplate.update("INSERT INTO user (username, email, password, registration_date) VALUES (?, ?, ?, ?);",
+                user.getUserName(),
+                user.getEmail(),
+                user.getPassword(),
+                user.getRegistrationDate());
     }
 
     @Override
     public boolean existsByUsername(String username) {
-        for (User user : users) {
-            if (user.getUserName().equals(username)) {
-                return true;
-            }
-        }
-        return false;
+        Integer i = jdbcTemplate.queryForObject("SELECT COUNT(*) from user u WHERE u.username = ?;", Integer.class, username);
+        return i > 0;
     }
 
-    private User generateMockUser(String id) {
-        return new User(id, "test@test.de", "123", new Date(), Collections.emptyList());
+    @Override
+    public List<Book> findUserBooksByUsername(String username) {
+        return bookRepository.getBooksForUser(username);
     }
 
-    private List<User> generateUserList() {
-        List<User> users = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            users.add(generateMockUser(String.valueOf(i)));
-        }
-        return users;
+    @Override
+    public List<Movie> findUserMoviesByUsername(String username) {
+        return movieRepository.findMoviesForUser(username);
     }
+
+    @Override
+    public List<Media> findFavoritesByUsername(String username) {
+        List<Media> favorites = new ArrayList<>();
+
+        List<Movie> movies = findUserMoviesByUsername(username);
+        List<Book> books = findUserBooksByUsername(username);
+
+        favorites.addAll(movies);
+        favorites.addAll(books);
+
+        return favorites;
+    }
+
 }
