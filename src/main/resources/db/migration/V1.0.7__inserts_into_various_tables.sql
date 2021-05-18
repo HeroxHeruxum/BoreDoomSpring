@@ -9,29 +9,6 @@ INSERT INTO user (username, email, password, registration_date)
 INSERT INTO user (username, email, password, registration_date)
   VALUES ('test', 'test@fl4shh-gmbh.com', '123xyz', now());
 
-# image_urls anpassen, sodass echte Werte drinstehen
-UPDATE book 
-SET image_url = 'https://images.lovelybooks.de/img/260x/cover.allsize.lovelybooks.de/9783551320117_1614251170000_xxl.jpg'
-WHERE id = 1;
-UPDATE book 
-SET image_url = 'https://images.lovelybooks.de/img/260x/cover.allsize.lovelybooks.de/9783551557421_1571835614000_xxl.jpg'
-WHERE id = 2;
-UPDATE book 
-SET image_url = 'https://images.lovelybooks.de/img/260x/cover.allsize.lovelybooks.de/9783551557438_1571835614000_xxl.jpg'
-WHERE id = 3;
-UPDATE book 
-SET image_url = 'https://images.lovelybooks.de/img/260x/cover.allsize.lovelybooks.de/9783551557445_1571835610000_xxl.jpg'
-WHERE id = 4;
-UPDATE book 
-SET image_url = 'https://images.lovelybooks.de/img/260x/cover.allsize.lovelybooks.de/9783551557452_1571835612000_xxl.jpg'
-WHERE id = 5;
-UPDATE book 
-SET image_url = 'https://images.lovelybooks.de/img/260x/cover.allsize.lovelybooks.de/9783551557469_1571835614000_xxl.jpg'
-WHERE id = 6;
-UPDATE book 
-SET image_url = 'https://images.lovelybooks.de/img/260x/cover.allsize.lovelybooks.de/9783551557476_1571835616000_xxl.jpg'
-WHERE id = 7;
-
 -- Actors, Directors, movie genres
 INSERT INTO director (full_name)
   VALUES ('Steven Spielberg');
