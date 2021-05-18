@@ -1,5 +1,6 @@
 package com.gruppe4.boredoom.backend.spring.controller;
 
+import com.gruppe4.boredoom.backend.spring.error.MediaSaveException;
 import com.gruppe4.boredoom.backend.spring.error.UserLoginException;
 import com.gruppe4.boredoom.backend.spring.error.UserRegistrationException;
 import com.gruppe4.boredoom.backend.spring.model.Book;
@@ -19,10 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -116,5 +114,28 @@ public class UserController {
         user.setPassword("<protected>");
 
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @PostMapping("/user/favorites/saveBook")
+    public ResponseEntity<String> saveBook(@RequestParam long bookId) {
+
+        try {
+            userRepository.saveFavoriteBook(bookId);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (MediaSaveException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @PostMapping("/user/favorites/saveMovie")
+    public ResponseEntity<String> saveMovie(@RequestParam long movieId) {
+        try {
+            userRepository.saveFavoriteMovie(movieId);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (MediaSaveException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 package com.gruppe4.boredoom.backend.spring.repository;
 
+import com.gruppe4.boredoom.backend.spring.error.MediaSaveException;
 import com.gruppe4.boredoom.backend.spring.model.Book;
 import com.gruppe4.boredoom.backend.spring.model.Media;
 import com.gruppe4.boredoom.backend.spring.model.Movie;
@@ -58,6 +59,16 @@ public class UserRepositoryMock implements UserRepository {
     @Override
     public List<Media> findFavoritesByUsername(String username) {
         return null;
+    }
+
+    @Override
+    public void saveFavoriteBook(long bookId) throws MediaSaveException {
+
+    }
+
+    @Override
+    public void saveFavoriteMovie(long bookId) throws MediaSaveException {
+
     }
 
     private User generateMockUser(String id) {

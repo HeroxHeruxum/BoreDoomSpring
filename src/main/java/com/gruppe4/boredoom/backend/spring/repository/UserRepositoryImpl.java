@@ -1,5 +1,6 @@
 package com.gruppe4.boredoom.backend.spring.repository;
 
+import com.gruppe4.boredoom.backend.spring.error.MediaSaveException;
 import com.gruppe4.boredoom.backend.spring.model.Book;
 import com.gruppe4.boredoom.backend.spring.model.Media;
 import com.gruppe4.boredoom.backend.spring.model.Movie;
@@ -84,6 +85,16 @@ public class UserRepositoryImpl implements UserRepository {
         favorites.addAll(books);
 
         return favorites;
+    }
+
+    @Override
+    public void saveFavoriteBook(long bookId) throws MediaSaveException {
+        //TODO: implement
+    }
+
+    @Override
+    public void saveFavoriteMovie(long movieId) throws MediaSaveException {
+        //TODO: implement
     }
 
 }
