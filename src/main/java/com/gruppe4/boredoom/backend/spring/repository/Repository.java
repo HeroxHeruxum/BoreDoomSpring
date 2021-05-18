@@ -1,11 +1,16 @@
 package com.gruppe4.boredoom.backend.spring.repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Function;
 
 public abstract class Repository {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Repository.class);
 
     protected final String url;
     private final String username;
@@ -33,7 +38,7 @@ public abstract class Repository {
                 resultList.add(resultObject);
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error("Connection to the database could not be established", throwables);
         }
         return resultList;
     }
