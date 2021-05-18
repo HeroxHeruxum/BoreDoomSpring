@@ -19,6 +19,10 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<!--Hier Credentials und Datenbank-Url eintragen-->
+		<boredoom.flyway.database>jdbc:mysql://localhost:3306/site</boredoom.flyway.database>
+		<boredoom.flyway.user>user</boredoom.flyway.user>
+		<boredoom.flyway.password>password</boredoom.flyway.password>
 	</properties>
 
 	<dependencies>
@@ -44,11 +48,16 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
+		 <groupId>org.springframework.boot</groupId>
+		 <artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
 		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+ 		</dependency>
+
+    <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -69,29 +78,26 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>7.8.2</version>
-                <configuration>
-					<!-- Hier müssen eure jeweiligen Credentials rein-->
-                    <url>jdbc:mysql://localhost:3306/site</url>
-                    <user>kore</user>	
-					<password>start1</password>
-					<!--                  bis hier                      -->
-					
-					<!-- Ab hier sind die configurations nur dafür da,
-					    um die Datenbank um eine flyway_schema_history tabelle zu erweitern,
-					    die automatisch angelegt wird-->
-					<baselineOnMigrate>false</baselineOnMigrate>
-                </configuration>
-                <dependencies>
-                    <dependency>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>7.8.2</version>
+				<configuration>
+          <url>${boredoom.flyway.database}</url>
+					<user>${boredoom.flyway.user}</user>
+					<password>${boredoom.flyway.password}</password>
+          <!-- Ab hier sind die configurations nur dafür da,
+              um die Datenbank um eine flyway_schema_history tabelle zu erweitern,
+              die automatisch angelegt wird-->
+          <baselineOnMigrate>false</baselineOnMigrate>
+				</configuration>
+				<dependencies>
+					<dependency>
 						<groupId>mysql</groupId>
 						<artifactId>mysql-connector-java</artifactId>
 						<version>8.0.24</version>
 					</dependency>
-                </dependencies>
-            </plugin>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
 

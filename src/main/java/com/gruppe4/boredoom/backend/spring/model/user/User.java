@@ -1,4 +1,6 @@
-package com.gruppe4.boredoom.backend.spring.model;
+package com.gruppe4.boredoom.backend.spring.model.user;
+
+import com.gruppe4.boredoom.backend.spring.model.Media;
 
 import java.util.Date;
 import java.util.List;

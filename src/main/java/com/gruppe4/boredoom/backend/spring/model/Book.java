@@ -2,6 +2,7 @@ package com.gruppe4.boredoom.backend.spring.model;
 
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
 import com.gruppe4.boredoom.backend.spring.model.enums.BookGenre;
+import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.enums.Setting;
 
 import java.util.List;
@@ -9,12 +10,12 @@ import java.util.List;
 public class Book extends Media {
 
     private String author;
-    private BookGenre bookGenre;
+    private List<BookGenre> bookGenre;
     private Integer pageCount;
 
     public Book() {}
 
-    public Book(String author, BookGenre bookGenre, int pageCount) {
+    public Book(String author, List<BookGenre> bookGenre, int pageCount) {
         this.author = author;
         this.bookGenre = bookGenre;
         this.pageCount = pageCount;
@@ -22,9 +23,10 @@ public class Book extends Media {
 
     public Book(long id, String name, String description, String imageUrl, int publishingYear, int minAge, int personCountMin,
             int personCountMax, int durationMin, int durationMax, List<ActivityType> activityTypes, Setting setting, String author,
-            BookGenre bookGenre, int pageCount) {
+            List<BookGenre> bookGenre, int pageCount) {
 
-        super(id, name, description, imageUrl, publishingYear, minAge, personCountMin, personCountMax, durationMin, durationMax,
+        super(id, MediaType.BOOK, name, description, imageUrl, publishingYear, minAge, personCountMin, personCountMax,
+                durationMin, durationMax,
                 activityTypes, setting);
         this.author = author;
         this.bookGenre = bookGenre;
@@ -39,11 +41,11 @@ public class Book extends Media {
         this.author = author;
     }
 
-    public BookGenre getBookGenre() {
+    public List<BookGenre> getBookGenre() {
         return bookGenre;
     }
 
-    public void setBookGenre(BookGenre bookGenre) {
+    public void setBookGenre(List<BookGenre> bookGenre) {
         this.bookGenre = bookGenre;
     }
 

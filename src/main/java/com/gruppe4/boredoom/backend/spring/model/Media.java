@@ -1,6 +1,7 @@
 package com.gruppe4.boredoom.backend.spring.model;
 
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
+import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.enums.Setting;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 public abstract class Media {
 
     private long id;
+    private MediaType mediaType;
     private String name;
     private String description;
     private String imageUrl;
@@ -25,9 +27,11 @@ public abstract class Media {
 
     protected Media() {}
 
-    protected Media(long id, String name, String description, String imageUrl, int publishingYear, int minAge, int personCountMin,
-            int personCountMax, int durationMin, int durationMax, List<ActivityType> activityTypes, Setting setting) {
+    public Media(long id, MediaType mediaType, String name, String description, String imageUrl, int publishingYear, int minAge,
+            int personCountMin, int personCountMax, int durationMin, int durationMax,
+            List<ActivityType> activityTypes, Setting setting) {
         this.id = id;
+        this.mediaType = mediaType;
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
@@ -135,5 +139,13 @@ public abstract class Media {
 
     public void setSetting(Setting setting) {
         this.setting = setting;
+    }
+
+    public MediaType getMediaType() {
+        return mediaType;
+    }
+
+    public void setMediaType(MediaType mediaType) {
+        this.mediaType = mediaType;
     }
 }

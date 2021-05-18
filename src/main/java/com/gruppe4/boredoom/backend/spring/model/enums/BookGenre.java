@@ -12,4 +12,13 @@ public enum BookGenre {
     BookGenre(String name) {
         this.name = name;
     }
+
+    public static BookGenre fromString(String text) {
+        for (BookGenre bookGenre : BookGenre.values()) {
+            if (bookGenre.name.equalsIgnoreCase(text)) {
+                return bookGenre;
+            }
+        }
+        return null;
+    }
 }

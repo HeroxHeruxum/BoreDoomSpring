@@ -13,4 +13,13 @@ public enum MovieGenre {
     MovieGenre(String name) {
         this.name = name;
     }
+
+    public static MovieGenre fromString(String text) {
+        for (MovieGenre movieGenre : MovieGenre.values()) {
+            if (movieGenre.name.equalsIgnoreCase(text)) {
+                return movieGenre;
+            }
+        }
+        return null;
+    }
 }

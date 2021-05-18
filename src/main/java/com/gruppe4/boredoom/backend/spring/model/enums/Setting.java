@@ -12,4 +12,13 @@ public enum Setting {
     Setting(String name) {
         this.name = name;
     }
+
+    public static Setting fromString(String text) {
+        for (Setting setting : Setting.values()) {
+            if (setting.name.equalsIgnoreCase(text)) {
+                return setting;
+            }
+        }
+        return null;
+    }
 }
