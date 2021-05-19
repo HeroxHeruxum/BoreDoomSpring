@@ -7,6 +7,7 @@ import java.util.List;
 
 public class User {
 
+    private long id;
     private String userName;
     private String email;
     private String password;
@@ -15,8 +16,9 @@ public class User {
 
     public User() {}
 
-    public User(String userName, String email, String password, Date registrationDate,
+    public User(long id, String userName, String email, String password, Date registrationDate,
             List<Media> favorites) {
+        this.id = id;
         this.userName = userName;
         this.email = email;
         this.password = password;
@@ -62,5 +64,13 @@ public class User {
 
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

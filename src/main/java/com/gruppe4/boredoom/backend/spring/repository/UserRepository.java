@@ -25,10 +25,10 @@ public interface UserRepository {
 
     List<Media> findFavoritesByUsername(String username);
 
-    void saveFavoriteBook(long bookId) throws MediaSaveException;
+    void saveFavoriteBook(long bookId, long userId) throws MediaSaveException;
 
-    void saveFavoriteMovie(long bookId) throws MediaSaveException;
+    void saveFavoriteMovie(long bookId, long userId) throws MediaSaveException;
 
-    void saveFavoriteMedia(long mediaId, MediaType mediaType) throws MediaSaveException;
+    void saveFavoriteMedia(long mediaId, MediaType mediaType, long userId) throws MediaSaveException;
 
 }
