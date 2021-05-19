@@ -7,6 +7,7 @@ import com.gruppe4.boredoom.backend.spring.model.Movie;
 import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.user.User;
 import com.gruppe4.boredoom.backend.spring.repository.mapper.UserMapper;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -89,27 +90,35 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void saveFavoriteBook(long bookId) throws MediaSaveException {
-        //TODO: implement
+    public void saveFavoriteBook(long bookId, long userId) throws MediaSaveException {
+        try {
+            jdbcTemplate.update("INSERT INTO user2book (user_id, book_id) VALUES (?, ?);", userId, bookId);
+        } catch (DataAccessException e) {
+            throw new MediaSaveException("Error while saving book to favorites");
+        }
     }
 
     @Override
-    public void saveFavoriteMovie(long movieId) throws MediaSaveException {
-        //TODO: implement
+    public void saveFavoriteMovie(long movieId, long userId) throws MediaSaveException {
+
+        try {
+            jdbcTemplate.update("INSERT INTO user2movie (user_id, movie_id) VALUES (?, ?);", userId, movieId);
+        } catch (DataAccessException e) {
+            throw new MediaSaveException("Error while saving movie to favorites");
+        }
     }
 
     @Override
-    public void saveFavoriteMedia(long mediaId, MediaType mediaType) throws MediaSaveException {
+    public void saveFavoriteMedia(long mediaId, MediaType mediaType, long userId) throws MediaSaveException {
 
         switch (mediaType) {
             case BOOK:
-                saveFavoriteBook(mediaId);
+                saveFavoriteBook(mediaId, userId);
                 break;
 
             case MOVIE:
-                saveFavoriteMovie(mediaId);
+                saveFavoriteMovie(mediaId, userId);
                 break;
-
         }
     }
 

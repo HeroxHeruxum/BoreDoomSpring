@@ -63,22 +63,22 @@ public class UserRepositoryMock implements UserRepository {
     }
 
     @Override
-    public void saveFavoriteBook(long bookId) throws MediaSaveException {
+    public void saveFavoriteBook(long bookId, long userId) throws MediaSaveException {
 
     }
 
     @Override
-    public void saveFavoriteMovie(long bookId) throws MediaSaveException {
+    public void saveFavoriteMovie(long bookId, long userId) throws MediaSaveException {
 
     }
 
     @Override
-    public void saveFavoriteMedia(long mediaId, MediaType mediaType) throws MediaSaveException {
+    public void saveFavoriteMedia(long mediaId, MediaType mediaType, long id) throws MediaSaveException {
 
     }
 
-    private User generateMockUser(String id) {
-        return new User(id, "test@test.de", "123", new Date(), Collections.emptyList());
+    private User generateMockUser(String username) {
+        return new User(Long.parseLong(username), username, "test@test.de", "123", new Date(), Collections.emptyList());
     }
 
     private List<User> generateUserList() {

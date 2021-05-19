@@ -24,6 +24,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -79,9 +80,11 @@ public class UserController {
     @GetMapping("/user/favorites/books")
     public ResponseEntity<List<Book>> getUserBooks() {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!isAuthenticated()) {
+            return new ResponseEntity<>(Collections.emptyList(), HttpStatus.UNAUTHORIZED);
+        }
 
-        User user = (User) authentication.getPrincipal();
+        User user = getUserFromSession();
 
         return new ResponseEntity<>(userRepository.findUserBooksByUsername(user.getUserName()), HttpStatus.OK);
     }
@@ -89,9 +92,11 @@ public class UserController {
     @GetMapping("/user/favorites/movies")
     public ResponseEntity<List<Movie>> getUserMovies() {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!isAuthenticated()) {
+            return new ResponseEntity<>(Collections.emptyList(), HttpStatus.UNAUTHORIZED);
+        }
 
-        User user = (User) authentication.getPrincipal();
+        User user = getUserFromSession();
 
         return new ResponseEntity<>(userRepository.findUserMoviesByUsername(user.getUserName()), HttpStatus.OK);
     }
@@ -99,9 +104,11 @@ public class UserController {
     @GetMapping("/user/favorites/")
     public ResponseEntity<List<Media>> getUserFavorites() {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!isAuthenticated()) {
+            return new ResponseEntity<>(Collections.emptyList(), HttpStatus.UNAUTHORIZED);
+        }
 
-        User user = (User) authentication.getPrincipal();
+        User user = getUserFromSession();
 
         return new ResponseEntity<>(userRepository.findFavoritesByUsername(user.getUserName()), HttpStatus.OK);
     }
@@ -109,44 +116,37 @@ public class UserController {
     @GetMapping("/user/data")
     public ResponseEntity<User> getUserData() {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!isAuthenticated()) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
 
-        User user = (User) authentication.getPrincipal();
+        User user = getUserFromSession();
         user.setPassword("<protected>");
 
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @PostMapping("/user/favorites/saveBook")
-    public ResponseEntity<String> saveBook(@RequestParam long bookId) {
-
-        try {
-            userRepository.saveFavoriteBook(bookId);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (MediaSaveException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-    }
-
-    @PostMapping("/user/favorites/saveMovie")
-    public ResponseEntity<String> saveMovie(@RequestParam long movieId) {
-        try {
-            userRepository.saveFavoriteMovie(movieId);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (MediaSaveException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-    }
-
-    @PostMapping("/user/favorites/saveMedia")
+    @CrossOrigin("http://localhost:3000")
+    @PutMapping("/user/favorites/saveMedia")
     public ResponseEntity<String> saveMedia(@RequestParam long mediaId, @RequestParam MediaType mediaType) {
+
+        if (!isAuthenticated()) {
+            return new ResponseEntity<>("No user session", HttpStatus.UNAUTHORIZED);
+        }
+
+        User user = getUserFromSession();
+
         try {
-            userRepository.saveFavoriteMedia(mediaId, mediaType);
+            userRepository.saveFavoriteMedia(mediaId, mediaType, user.getId());
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (MediaSaveException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    private User getUserFromSession() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        return (User) authentication.getPrincipal();
     }
 }
