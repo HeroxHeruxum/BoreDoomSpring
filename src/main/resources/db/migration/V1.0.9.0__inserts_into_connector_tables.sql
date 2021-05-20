@@ -22,9 +22,7 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (29,3);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (29,2);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (29,1);
+  VALUES (29,5);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (29,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -40,9 +38,7 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (30,9);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (30,2);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (30,8);
+  VALUES (30,6);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (30,1);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -61,8 +57,6 @@ INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (36,3);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (36,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (36,5);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (36,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -81,8 +75,6 @@ INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (31,3);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (31,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (31,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (31,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -99,8 +91,6 @@ INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (32,3);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (32,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (32,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (32,1);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -114,7 +104,7 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (37,26);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (37,9);
+  VALUES (37,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (37,4);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
@@ -137,8 +127,6 @@ INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (33,3);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (33,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (33,5);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (33,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -156,9 +144,7 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (35,3);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (35,5);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (35,7);
+  VALUES (35,4);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (35,1);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -190,9 +176,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (38,32);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (38,9);
+  VALUES (38,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (38,12);
+  VALUES (38,5);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (38,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -206,9 +192,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (39,32);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (39,9);
+  VALUES (39,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (39,12);
+  VALUES (39,5);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (39,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -224,9 +210,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (40,32);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (40,9);
+  VALUES (40,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (40,12);
+  VALUES (40,5);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (40,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -242,11 +228,7 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (41,29);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (41,10);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (41,11);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (41,2);
+  VALUES (41,3);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (41,7);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -260,11 +242,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (42,49);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (42,9);
+  VALUES (42,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (42,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (42,7);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (42,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -280,11 +260,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (43,46);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (43,9);
+  VALUES (43,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (43,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (43,12);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (43,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -300,11 +278,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (44,36);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (44,9);
+  VALUES (44,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (44,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (44,12);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (44,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -320,11 +296,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (45,3);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (45,9);
+  VALUES (45,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (45,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (45,12);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (45,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -340,11 +314,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (46,3);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (46,9);
+  VALUES (46,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (46,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (46,12);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (46,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -360,7 +332,7 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (47,42);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (47,9);
+  VALUES (47,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (47,4);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
@@ -380,7 +352,7 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (48,40);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (48,9);
+  VALUES (48,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (48,4);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
@@ -400,11 +372,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (49,38);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (49,9);
+  VALUES (49,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (49,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (49,12);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (49,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -419,8 +389,6 @@ INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (50,34);
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (50,33);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (50,9);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (50,4);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
@@ -440,11 +408,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (51,37);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (51,9);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (51,4);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (51,12);
+  VALUES (51,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (51,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -460,11 +426,9 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (52,36);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (52,9);
+  VALUES (52,2);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (52,4);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (52,12);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (52,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -484,11 +448,11 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (53,57);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (53,9);
+  VALUES (53,3);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
   VALUES (53,4);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (53,3);
+  VALUES (53,6);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (53,2);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -504,11 +468,7 @@ INSERT INTO movie2actor (movie_id, actor_id)
 INSERT INTO movie2actor (movie_id, actor_id)
   VALUES (54,52);
 INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (54,2);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (54,8);
-INSERT INTO movie2movie_genre (movie_id, movie_genre_id)
-  VALUES (54,12); 
+  VALUES (54,3);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
   VALUES (54,1);
 INSERT INTO movie2activity_type (movie_id, activity_type_id) 
@@ -547,35 +507,33 @@ INSERT INTO book2activity_type (book_id, activity_type_id)
   VALUES (9,4);
 
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (3,1);
+  VALUES (3,3);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (3,2);
+  VALUES (3,4);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (4,1);
+  VALUES (4,3);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (4,2);
+  VALUES (4,4);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (5,2);
+  VALUES (5,3);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (5,13);
+  VALUES (5,4);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (6,2);
+  VALUES (6,3);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (6,13);
+  VALUES (6,4);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (7,2);
+  VALUES (7,3);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (7,8);
+  VALUES (7,4);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (8,2);
+  VALUES (8,3);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (8,13);
+  VALUES (8,4);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (9,2);
+  VALUES (9,3);
 INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (9,13);
-INSERT INTO book2book_genre (book_id, book_genre_id)
-  VALUES (9,11);
+  VALUES (9,4);
 
 #Favourite Books
 INSERT INTO user2book (user_id, book_id)

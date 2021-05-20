@@ -35,12 +35,6 @@ ALTER TABLE actor
 ALTER TABLE author
   ADD CONSTRAINT uqx_athr UNIQUE (full_name);
 
-ALTER TABLE movie_genre
-  ADD CONSTRAINT uqx_mgnr UNIQUE (genre);
-
-ALTER TABLE book_genre
-  ADD CONSTRAINT uqx_bgnr UNIQUE (genre);
-
 ALTER TABLE activity_type
   ADD CONSTRAINT uqx_ctvttp UNIQUE (activity_type);
 
