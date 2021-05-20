@@ -31,7 +31,7 @@ INSERT INTO evaluation_value (id, evaluation_value, evaluation_type_id) VALUES (
 INSERT INTO evaluation_value (id, evaluation_value, evaluation_type_id) VALUES (12,'Krimi', 2);
 INSERT INTO evaluation_value (id, evaluation_value, evaluation_type_id) VALUES (13,'Comedy', 2);
 
-INSERT INTO evaluation_value (id, evaluation_value, evaluation_type_id) VALUES (14,'Fantasy', 3);
+INSERT INTO evaluation_value (id, evaluation_value, evaluation_type_id) VALUES (14,'Fantasy_Setting', 3);
 INSERT INTO evaluation_value (id, evaluation_value, evaluation_type_id) VALUES (15,'Zukunft', 3);
 INSERT INTO evaluation_value (id, evaluation_value, evaluation_type_id) VALUES (16,'Gegenwart', 3);
 INSERT INTO evaluation_value (id, evaluation_value, evaluation_type_id) VALUES (17,'Vergangenheit', 3);
@@ -62,7 +62,8 @@ INSERT INTO question (id, question, question_type_id) VALUES (7, 'Was sind die b
 ALTER TABLE choice ADD evaluation_value_id INT;
 ALTER TABLE choice ADD FOREIGN KEY (evaluation_value_id) REFERENCES evaluation_value (id);
 ALTER TABLE choice ADD weight DECIMAL (5,2);
-ALTER TABLE choice ADD CONSTRAINT uqx_chc_wgt UNIQUE (choice, weight);
+ALTER TABLE choice CHANGE COLUMN choice choice VARCHAR(100);
+ALTER TABLE choice ADD CONSTRAINT uqx_chc UNIQUE (choice);
 
 # befüllen der choice und der question2choice Tabellen
 INSERT INTO choice (id, choice, evaluation_value_id, weight) VALUES (1,'Horror', 8, 1), (2,'Action',9,1), (3,'Abenteuer',10,1),
@@ -96,4 +97,5 @@ INSERT INTO question2choice (question_id, choice_id) VALUES (4, 19), (4, 22), (4
 INSERT INTO question2choice (question_id, choice_id) VALUES (5, 29), (5,23), (5,24), (5,25), (5,26), (5,27), (5,28);
 INSERT INTO question2choice (question_id, choice_id) VALUES (6, 32), (6,30), (6,31);
 INSERT INTO question2choice (question_id, choice_id) VALUES (7,38), (7,33), (7,34), (7,35), (7,36), (7,37);
+
 
