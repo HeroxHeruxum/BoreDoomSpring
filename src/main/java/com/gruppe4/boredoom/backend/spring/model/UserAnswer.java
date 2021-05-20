@@ -2,7 +2,7 @@ package com.gruppe4.boredoom.backend.spring.model;
 
 import java.util.List;
 
-public class EvaluationData {
+public class UserAnswer {
 
     private long questionId;
     private List<Long> choices;

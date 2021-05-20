@@ -1,11 +1,10 @@
 package com.gruppe4.boredoom.backend.spring.service;
 
-import com.gruppe4.boredoom.backend.spring.model.EvaluationData;
-import com.gruppe4.boredoom.backend.spring.model.Media;
-import com.gruppe4.boredoom.backend.spring.model.MediaResultValue;
-import com.gruppe4.boredoom.backend.spring.model.ResultValue;
+import com.gruppe4.boredoom.backend.spring.model.*;
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
 import com.gruppe4.boredoom.backend.spring.model.enums.Setting;
+import com.gruppe4.boredoom.backend.spring.repository.BookRepository;
+import com.gruppe4.boredoom.backend.spring.repository.MovieRepository;
 import com.gruppe4.boredoom.backend.spring.repository.QuestionRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,19 +14,75 @@ import java.util.*;
 public class EvaluationService {
 
     private final QuestionRepository questionRepository;
+    private final BookRepository bookRepository;
+    private final MovieRepository movieRepository;
 
-    public EvaluationService(QuestionRepository questionRepository) {this.questionRepository = questionRepository;}
+    public EvaluationService(QuestionRepository questionRepository,
+            BookRepository bookRepository, MovieRepository movieRepository) {
+        this.questionRepository = questionRepository;
+        this.bookRepository = bookRepository;
+        this.movieRepository = movieRepository;
+    }
 
-    public List<Media> getResult(List<EvaluationData> evaluationDataList) {
+    public List<MediaResultValue> getResult(List<UserAnswer> userAnswers) {
 
-        Map<String, Map<String, Double>> evaluationMap = new HashMap<>();
+        List<Choice> choices = new ArrayList<>();
+        List<Media> media = getAllMediaFromDatabase();
 
-        for (EvaluationData evaluationData : evaluationDataList) {
-            if (evaluationMap.containsKey(evaluationData.))
+        for (UserAnswer userAnswer : userAnswers) {
+            List<Question> questions = questionRepository.getAll();
+
+            for (Question question : questions) {
+                if (question.getId() == userAnswer.getQuestionId()) {
+                    for (long id : userAnswer.getChoices()) {
+                        for (Choice choice : question.getChoices()) {
+                            if (choice.getId() == id) {
+                                choices.add(choice); // Put user choice to list
+                            }
+                        }
+                    }
+                }
+            }
 
         }
 
-        return Collections.emptyList();
+        Map<String, Map<String, Double>> evaluationMap = generateEvaluationMap(choices);
+
+        return evaluateByEvaluationMap(evaluationMap, media);
+    }
+
+    protected List<Media> getAllMediaFromDatabase() {
+        List<Media> mediaList = new ArrayList<>();
+
+        mediaList.addAll(movieRepository.findAll());
+        mediaList.addAll(bookRepository.findAll());
+
+        return mediaList;
+    }
+
+    protected Map<String, Map<String, Double>> generateEvaluationMap(List<Choice> userChoices) {
+        Map<String, Map<String, Double>> evaluationTypes = new HashMap<>();
+
+        for (Choice choice : userChoices) {
+            String evaluationType = choice.getEvaluationValue().getEvaluationType().getType();
+            String evaluationValueName = choice.getEvaluationValue().getValue();
+            double weight = choice.getWeight();
+
+            if (evaluationTypes.containsKey(evaluationType)) {
+                Map<String, Double> evaluationValues = evaluationTypes.get(evaluationType);
+                if (evaluationValues.containsKey(evaluationValueName)) {
+                    Double existingWeight = evaluationValues.get(evaluationValueName);
+                    existingWeight = existingWeight + weight;
+                } else {
+                    evaluationValues.put(evaluationValueName, weight);
+                }
+            } else {
+                Map<String, Double> evaluationValues = Map.of(evaluationValueName, weight);
+                evaluationTypes.put(evaluationType, evaluationValues);
+            }
+        }
+
+        return evaluationTypes;
     }
 
     protected List<MediaResultValue> evaluateByEvaluationMap(Map<String, Map<String, Double>> evaluationMap, List<Media> allMedia) {

@@ -1,29 +1,42 @@
 package com.gruppe4.boredoom.backend.spring.service;
 
-import com.gruppe4.boredoom.backend.spring.model.Book;
-import com.gruppe4.boredoom.backend.spring.model.Media;
-import com.gruppe4.boredoom.backend.spring.model.MediaResultValue;
-import com.gruppe4.boredoom.backend.spring.model.Movie;
+import com.gruppe4.boredoom.backend.spring.model.*;
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
 import com.gruppe4.boredoom.backend.spring.model.enums.Setting;
+import com.gruppe4.boredoom.backend.spring.repository.BookRepository;
+import com.gruppe4.boredoom.backend.spring.repository.MovieRepository;
 import com.gruppe4.boredoom.backend.spring.repository.QuestionRepository;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 class EvaluationServiceTest {
 
+    QuestionRepository questionRepository = mock(QuestionRepository.class);
+    BookRepository bookRepository = mock(BookRepository.class);
+    MovieRepository movieRepository = mock(MovieRepository.class);
+
+    EvaluationService evaluationService = spy(new EvaluationService(questionRepository, bookRepository, movieRepository));
+
     @Test
     void evaluateByResultMap() {
-        QuestionRepository questionRepository = mock(QuestionRepository.class);
-        EvaluationService evaluationService = new EvaluationService(questionRepository);
         List<MediaResultValue> mediaList = evaluationService.evaluateByEvaluationMap(generateMockResultMap(), generateMockMedia());
         System.out.println(mediaList);
+    }
+
+    //@Test
+    void getResultTest() {
+        List<Media> allMedia = generateMockMedia();
+        doReturn(allMedia).when(evaluationService).getAllMediaFromDatabase();
+
+        List<MediaResultValue> mediaResultValues = evaluationService.getResult(generateMockEvaluationData());
+        System.out.println(mediaResultValues);
+    }
+
+    protected List<UserAnswer> generateMockEvaluationData() {
+        return Collections.emptyList();
     }
 
     protected Map<String, Map<String, Double>> generateMockResultMap() {
