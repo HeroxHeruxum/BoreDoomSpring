@@ -69,7 +69,7 @@ public class EvaluationService {
         mediaList.addAll(movieRepository.findAll());
         mediaList.addAll(bookRepository.findAll());
 
-        return generateMockMedia();
+        return mediaList;
     }
 
     protected Map<String, Map<String, Double>> generateEvaluationMap(List<Choice> userChoices) {
@@ -235,7 +235,7 @@ public class EvaluationService {
         Book book = new Book();
         book.setActivityTypes(List.of(ActivityType.ACTION, ActivityType.EXCITING));
         book.setSetting(Setting.FANTASY);
-        book.setGenres(List.of(Genre.ROMANCE));
+        book.setGenres(List.of(Genre.ADVENTURE));
         mediaList.add(book);
 
         Book book2 = new Book();
@@ -253,7 +253,7 @@ public class EvaluationService {
         Movie movie = new Movie();
         movie.setActivityTypes(List.of(ActivityType.DRAMATIC));
         movie.setSetting(Setting.PRESENT);
-        movie.setGenres(List.of(Genre.ROMANCE));
+        movie.setGenres(List.of(Genre.HORROR));
         mediaList.add(movie);
 
         Movie movie2 = new Movie();
@@ -265,7 +265,7 @@ public class EvaluationService {
         Movie movie3 = new Movie();
         movie3.setActivityTypes(List.of(ActivityType.CALM, ActivityType.EXCITING));
         movie3.setSetting(Setting.PRESENT);
-        movie3.setGenres(List.of(Genre.ADVENTURE, Genre.SCIENCE_FICTION, Genre.COMEDY));
+        movie3.setGenres(List.of(Genre.ADVENTURE, Genre.ACTION, Genre.COMEDY));
         mediaList.add(movie3);
 
         return mediaList;
