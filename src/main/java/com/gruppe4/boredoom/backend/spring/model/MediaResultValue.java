@@ -1,5 +1,6 @@
 package com.gruppe4.boredoom.backend.spring.model;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class MediaResultValue {
@@ -7,13 +8,24 @@ public class MediaResultValue {
     private Media media;
     private double weight;
 
-    public MediaResultValue(Media media, double weight) {
+    public MediaResultValue(Media media, double weight, Map<String, Double> singleCriteria) {
         this.media = media;
         this.weight = weight;
+        this.singleCriteria = singleCriteria;
     }
+
+    private Map<String, Double> singleCriteria;
 
     public Media getMedia() {
         return media;
+    }
+
+    public Map<String, Double> getSingleCriteria() {
+        return singleCriteria;
+    }
+
+    public void setSingleCriteria(Map<String, Double> singleCriteria) {
+        this.singleCriteria = singleCriteria;
     }
 
     public void setMedia(Media media) {
