@@ -2,7 +2,7 @@ package com.gruppe4.boredoom.backend.spring.repository;
 
 import com.gruppe4.boredoom.backend.spring.model.Movie;
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
-import com.gruppe4.boredoom.backend.spring.model.enums.MovieGenre;
+import com.gruppe4.boredoom.backend.spring.model.enums.Genre;
 import com.gruppe4.boredoom.backend.spring.repository.mapper.MovieMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -49,22 +49,22 @@ public class MovieRepositoryImpl implements MovieRepository {
 
         List<ActivityType> activityTypes = new ArrayList<>();
 
-        activityTypesStr.forEach(s -> activityTypes.add(ActivityType.valueOf(s)));
+        activityTypesStr.forEach(s -> activityTypes.add(ActivityType.fromString(s)));
 
         return activityTypes;
     }
 
     @Override
-    public List<MovieGenre> getGenresForMovie(long id) {
+    public List<Genre> getGenresForMovie(long id) {
 
-        List<String> genresStr = jdbcTemplate.queryForList("SELECT mg.genre from movie_genre mg" +
+        List<String> genresStr = jdbcTemplate.queryForList("SELECT mg.genre from genre mg" +
                 "  JOIN movie2movie_genre m2m on (mg.id = m2m.movie_genre_id)" +
                 "  JOIN movie m on (m2m.movie_id = m.id)" +
                 "  WHERE m.id = ?;", String.class, id);
 
-        List<MovieGenre> movieGenres = new ArrayList<>();
+        List<Genre> movieGenres = new ArrayList<>();
 
-        genresStr.forEach(s -> movieGenres.add(MovieGenre.valueOf("s")));
+        genresStr.forEach(s -> movieGenres.add(Genre.fromString(s)));
 
         return movieGenres;
     }
@@ -84,7 +84,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 
     public void mapMovieTables(Movie movie) {
         long movieId = movie.getId();
-        movie.setMovieGenre(getGenresForMovie(movieId));
+        movie.setGenres(getGenresForMovie(movieId));
         movie.setMainActors(getActorsForMovie(movieId));
         movie.setActivityTypes(getActivityTypesForMovie(movieId));
     }

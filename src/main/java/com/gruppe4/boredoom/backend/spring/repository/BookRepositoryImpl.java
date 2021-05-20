@@ -2,7 +2,7 @@ package com.gruppe4.boredoom.backend.spring.repository;
 
 import com.gruppe4.boredoom.backend.spring.model.Book;
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
-import com.gruppe4.boredoom.backend.spring.model.enums.BookGenre;
+import com.gruppe4.boredoom.backend.spring.model.enums.Genre;
 import com.gruppe4.boredoom.backend.spring.repository.mapper.BookMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -43,21 +43,21 @@ public class BookRepositoryImpl implements BookRepository {
 
         List<ActivityType> activityTypes = new ArrayList<>();
 
-        activityTypesStr.forEach(s -> activityTypes.add(ActivityType.valueOf(s)));
+        activityTypesStr.forEach(s -> activityTypes.add(ActivityType.fromString(s)));
 
         return activityTypes;
     }
 
     @Override
-    public List<BookGenre> getGenresForBook(long id) {
-        List<String> genresStr = jdbcTemplate.queryForList("SELECT bg.genre from book_genre bg" +
+    public List<Genre> getGenresForBook(long id) {
+        List<String> genresStr = jdbcTemplate.queryForList("SELECT bg.genre from genre bg" +
                 "  JOIN book2book_genre b2b on (bg.id = b2b.book_genre_id)" +
                 "  JOIN book b on (b.id = b2b.book_id)" +
                 "  WHERE b.id = ?;", String.class, id);
 
-        List<BookGenre> bookGenres = new ArrayList<>();
+        List<Genre> bookGenres = new ArrayList<>();
 
-        genresStr.forEach(s -> bookGenres.add(BookGenre.valueOf(s)));
+        genresStr.forEach(s -> bookGenres.add(Genre.fromString(s)));
 
         return bookGenres;
     }
@@ -77,7 +77,7 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     public void mapBookTables(Book book) {
-        book.setBookGenre(getGenresForBook(book.getId()));
+        book.setGenres(getGenresForBook(book.getId()));
         book.setActivityTypes(getActivityTypesForMovie(book.getId()));
     }
 }

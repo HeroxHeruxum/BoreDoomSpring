@@ -17,7 +17,7 @@ public class BookMapper extends MediaMapper implements RowMapper<Book> {
         Book book = new Book();
         mapMedia(book, rs);
 
-        book.setBookGenre(Collections.emptyList());  // Needs to be queried separately
+        book.setGenres(Collections.emptyList());  // Needs to be queried separately
         book.setPageCount(rs.getInt("page_count"));
         book.setAuthor(rs.getString("full_name")); //TODO: fullname
 
