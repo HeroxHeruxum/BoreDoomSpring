@@ -6,7 +6,6 @@ public class EvaluationType {
 
     private long id;
     private String type;
-    private List<EvaluationValue> evaluationValueList;
 
     public EvaluationType(){};
 
@@ -14,7 +13,6 @@ public class EvaluationType {
             List<EvaluationValue> evaluationValueList) {
         this.id = id;
         this.type = type;
-        this.evaluationValueList = evaluationValueList;
     }
 
     public long getId() {
@@ -31,13 +29,5 @@ public class EvaluationType {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public List<EvaluationValue> getEvaluationValueList() {
-        return evaluationValueList;
-    }
-
-    public void setEvaluationValueList(List<EvaluationValue> evaluationValueList) {
-        this.evaluationValueList = evaluationValueList;
     }
 }
