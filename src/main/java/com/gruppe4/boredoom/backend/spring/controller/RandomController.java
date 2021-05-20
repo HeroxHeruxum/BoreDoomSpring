@@ -18,6 +18,6 @@ public class RandomController {
     @CrossOrigin("*")
     @GetMapping("/random")
     public Media getRandomMedia(){
-       return randomService.getRandomMedia();
+        return randomService.getRandomMedia();
     }
 }

@@ -23,7 +23,6 @@ public class RandomService {
     }
 
     public Media getRandomMedia(){
-
         List<Book> bookList = bookRepository.findAll();
         List<Movie> movieList = movieRepository.findAll();
 
