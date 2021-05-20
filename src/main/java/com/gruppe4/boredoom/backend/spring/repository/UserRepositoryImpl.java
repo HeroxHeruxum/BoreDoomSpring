@@ -34,7 +34,8 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User findUserByUsername(String username) {
 
-        User user = jdbcTemplate.queryForObject("SELECT * from user u where u.username = ?", userMapper, username);
+        var user = jdbcTemplate.queryForObject("SELECT * from user u where u.username = ?", userMapper, username);
+        assert user != null;
         user.setFavorites(findFavoritesByUsername(user.getUserName()));
 
         return user;
@@ -119,6 +120,38 @@ public class UserRepositoryImpl implements UserRepository {
             case MOVIE:
                 saveFavoriteMovie(mediaId, userId);
                 break;
+        }
+    }
+
+    @Override
+    public void deleteFavoriteMedia(long mediaId, MediaType mediaType, long userId) throws MediaSaveException {
+
+        switch (mediaType) {
+            case BOOK:
+                deleteFavoriteBook(userId, mediaId);
+                break;
+
+            case MOVIE:
+                deleteFavoritMovie(userId, mediaId);
+                break;
+        }
+    }
+
+    @Override
+    public void deleteFavoriteBook(long userId, long bookId) throws MediaSaveException {
+        try {
+            jdbcTemplate.update("DELETE FROM user2book WHERE user_id = ? AND book_id = ?", userId, bookId);
+        } catch (DataAccessException e) {
+            throw new MediaSaveException("Error while deleting book from favorites");
+        }
+    }
+
+    @Override
+    public void deleteFavoritMovie(long userId, long movieId) throws MediaSaveException {
+        try {
+            jdbcTemplate.update("DELETE FROM user2movie WHERE user_id = ? AND movie_id = ? ", userId, movieId);
+        } catch (DataAccessException e) {
+            throw new MediaSaveException("Error while deleting movie from favorites");
         }
     }
 
