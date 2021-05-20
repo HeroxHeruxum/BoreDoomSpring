@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class QuestionController {
 
-    private QuestionRepository questionRepository;
+    private final QuestionRepository questionRepository;
 
     public QuestionController(QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
