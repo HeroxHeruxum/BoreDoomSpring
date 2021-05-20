@@ -127,12 +127,39 @@ public class EvaluationService {
                 Map<String, Double> criteria = new HashMap<>();
                 criteria.put(resultValue.getName(), resultValue.getWeight());
                 MediaResultValue newMrv = new MediaResultValue(media, resultValue.getWeight(), criteria);
+                List<String> userPreferences = getUserPreferences(resultValues);
+                newMrv.setUserPreferences(userPreferences);
 
                 addMediaResultValue(allMediaResultValues, newMrv);
             }
         }
 
         return allMediaResultValues;
+    }
+
+    protected List<String> getUserPreferences(List<ResultValue> resultValues) {
+        List<ResultValue> resultValuesShadow = new ArrayList<>();
+        resultValuesShadow.addAll(resultValues);
+
+        resultValuesShadow.sort(new Comparator<ResultValue>() {
+            @Override
+            public int compare(ResultValue t1, ResultValue t2) {
+                if (t1.getWeight() == t2.getWeight()) {
+                    return 0;
+                }
+                return t1.getWeight() < t2.getWeight() ? 1 : -1;
+            }
+        });
+
+        int maxUserPrefs = 3;
+        if (maxUserPrefs > resultValues.size()) {
+            maxUserPrefs = resultValues.size();
+        }
+
+        List<String> userPreferences = new ArrayList<>();
+        resultValuesShadow.subList(0, maxUserPrefs).forEach(r -> userPreferences.add(r.getName()));
+
+        return userPreferences;
     }
 
     protected void addMediaResultValue(List<MediaResultValue> list, MediaResultValue mrv) {
