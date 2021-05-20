@@ -14,6 +14,6 @@ public class EvaluationTypeMapper implements RowMapper<EvaluationType> {
     public EvaluationType mapRow(ResultSet resultSet, int i) throws SQLException {
         var evaluationType = new EvaluationType();
         evaluationType.setType(resultSet.getString("evaluation_type"));
-        return null;
+        return evaluationType;
     }
 }

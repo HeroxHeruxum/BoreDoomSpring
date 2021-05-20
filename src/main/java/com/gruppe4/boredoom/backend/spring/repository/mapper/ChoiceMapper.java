@@ -14,6 +14,7 @@ public class ChoiceMapper implements RowMapper<Choice> {
     public Choice mapRow(ResultSet resultSet, int i) throws SQLException {
         var choice = new Choice();
         choice.setId(resultSet.getLong("id"));
+        choice.setValue(resultSet.getString("choice"));
         choice.setEvaluationValueId(resultSet.getLong("evaluation_value_id"));
         choice.setWeight(resultSet.getDouble("weight"));
         return choice;
