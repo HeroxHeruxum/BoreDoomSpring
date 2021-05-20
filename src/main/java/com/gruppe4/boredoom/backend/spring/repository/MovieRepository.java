@@ -2,7 +2,7 @@ package com.gruppe4.boredoom.backend.spring.repository;
 
 import com.gruppe4.boredoom.backend.spring.model.Movie;
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
-import com.gruppe4.boredoom.backend.spring.model.enums.MovieGenre;
+import com.gruppe4.boredoom.backend.spring.model.enums.Genre;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface MovieRepository {
 
     List<ActivityType> getActivityTypesForMovie(long id);
 
-    List<MovieGenre> getGenresForMovie(long id);
+    List<Genre> getGenresForMovie(long id);
 
     List<Movie> findMoviesForUser(String username);
 
