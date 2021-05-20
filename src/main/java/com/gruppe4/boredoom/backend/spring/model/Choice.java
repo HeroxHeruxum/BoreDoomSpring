@@ -4,18 +4,28 @@ public class Choice {
 
     private long id;
     private String value;
-    private String evaluationType; // "ActivityType"
-    private String evaluationValue; // "Gruselig"
+    private EvaluationValue evaluationValue; // "Gruselig"
+    private long evaluationValueId;
     private double weight;
 
-    public Choice(long id, String value, String evaluationType, String evaluationValue, double weight) {
+    public Choice(){};
+
+    public Choice(long id, String value, EvaluationValue evaluationValue,long evaluationValueId, double weight) {
         this.id = id;
         this.value = value;
-        this.evaluationType = evaluationType;
         this.evaluationValue = evaluationValue;
+        this.evaluationValueId = evaluationValueId;
         this.weight = weight;
     }
-    
+
+    public long getEvaluationValueId() {
+        return evaluationValueId;
+    }
+
+    public void setEvaluationValueId(long evaluationValueId) {
+        this.evaluationValueId = evaluationValueId;
+    }
+
     public long getId() {
         return id;
     }
@@ -40,19 +50,11 @@ public class Choice {
         this.value = value;
     }
 
-    public String getEvaluationType() {
-        return evaluationType;
-    }
-
-    public void setEvaluationType(String evaluationType) {
-        this.evaluationType = evaluationType;
-    }
-
-    public Object getEvaluationValue() {
+    public EvaluationValue getEvaluationValue() {
         return evaluationValue;
     }
 
-    public void setEvaluationValue(String evaluationValue) {
+    public void setEvaluationValue(EvaluationValue evaluationValue) {
         this.evaluationValue = evaluationValue;
     }
 }
