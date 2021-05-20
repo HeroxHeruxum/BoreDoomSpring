@@ -9,14 +9,22 @@ public class Question {
     private long id;
     private String text;
     private QuestionType type;
-    private List<String> choices;
+    private List<Choice> choices;
 
     public Question() {}
 
-    public Question(long id, String text, QuestionType type, List<String> choices) {
+    public Question(long id, String text, QuestionType type, List<Choice> choices) {
         this.id = id;
         this.text = text;
         this.type = type;
+        this.choices = choices;
+    }
+
+    public List<Choice> getChoices() {
+        return choices;
+    }
+
+    public void setChoices(List<Choice> choices) {
         this.choices = choices;
     }
 
@@ -44,11 +52,5 @@ public class Question {
         this.type = type;
     }
 
-    public List<String> getChoices() {
-        return choices;
-    }
 
-    public void setChoices(List<String> choices) {
-        this.choices = choices;
-    }
 }
