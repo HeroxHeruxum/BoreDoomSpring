@@ -7,7 +7,9 @@ import com.gruppe4.boredoom.backend.spring.repository.BookRepository;
 import com.gruppe4.boredoom.backend.spring.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class RandomService {
@@ -25,9 +27,12 @@ public class RandomService {
         List<Book> bookList = bookRepository.findAll();
         List<Movie> movieList = movieRepository.findAll();
 
-        return null;
+        List<Media> allMedia = new ArrayList<>();
+        allMedia.addAll(bookList);
+        allMedia.addAll(movieList);
 
+        var randomIndex = new Random().nextInt(allMedia.size());
+
+        return allMedia.get(randomIndex);
     }
-
-
 }
