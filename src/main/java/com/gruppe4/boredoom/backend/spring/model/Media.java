@@ -1,6 +1,7 @@
 package com.gruppe4.boredoom.backend.spring.model;
 
 import com.gruppe4.boredoom.backend.spring.model.enums.ActivityType;
+import com.gruppe4.boredoom.backend.spring.model.enums.Genre;
 import com.gruppe4.boredoom.backend.spring.model.enums.MediaType;
 import com.gruppe4.boredoom.backend.spring.model.enums.Setting;
 
@@ -23,6 +24,7 @@ public abstract class Media {
     private int durationMax; // in Stunden
 
     private List<ActivityType> activityTypes;
+    private List<Genre> genres;
     private Setting setting;
 
     protected Media() {}
@@ -43,6 +45,14 @@ public abstract class Media {
         this.durationMax = durationMax;
         this.activityTypes = activityTypes;
         this.setting = setting;
+    }
+
+    public List<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
     }
 
     public int getPublishingYear() {

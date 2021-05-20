@@ -18,7 +18,7 @@ public class MovieMapper extends MediaMapper implements RowMapper<Movie> {
         mapMedia(movie, rs);
 
         movie.setMainActors(Collections.emptyList()); // Needs to be queried separately
-        movie.setMovieGenre(Collections.emptyList());  // Needs to be queried separately
+        movie.setGenres(Collections.emptyList());  // Needs to be queried separately
         movie.setDirector(rs.getString("full_name"));
         movie.setDuration(rs.getInt("duration"));
 
