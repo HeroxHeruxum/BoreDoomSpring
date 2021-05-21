@@ -31,4 +31,9 @@ public interface UserRepository {
 
     void saveFavoriteMedia(long mediaId, MediaType mediaType, long userId) throws MediaSaveException;
 
+    void deleteFavoriteMedia(long mediaId, MediaType mediaType, long userId) throws MediaSaveException;
+
+    void deleteFavoriteBook(long userId, long bookId) throws MediaSaveException;
+
+    void deleteFavoritMovie(long userId, long bookId) throws MediaSaveException;
 }
