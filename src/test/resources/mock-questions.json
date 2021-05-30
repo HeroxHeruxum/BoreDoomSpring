@@ -1,0 +1,621 @@
+[
+  {
+    "id": 1,
+    "text": "Welche Genres interessieren dich?",
+    "type": "MULTIPLE_CHOICE",
+    "choices": [
+      {
+        "id": 1,
+        "value": "Horror",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Horror",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 8,
+        "weight": 1.0
+      },
+      {
+        "id": 2,
+        "value": "Action",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Action",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 9,
+        "weight": 1.0
+      },
+      {
+        "id": 3,
+        "value": "Abenteuer",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Abenteuer",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 10,
+        "weight": 1.0
+      },
+      {
+        "id": 4,
+        "value": "Fantasy",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Fantasy",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 11,
+        "weight": 1.0
+      },
+      {
+        "id": 5,
+        "value": "Krimi",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Krimi",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 12,
+        "weight": 1.0
+      },
+      {
+        "id": 6,
+        "value": "Comedy",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Comedy",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 13,
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "text": "Wie soll der Abend verlaufen?",
+    "type": "SINGLE_CHOICE",
+    "choices": [
+      {
+        "id": 7,
+        "value": "ruhig",
+        "evaluationValue": {
+          "id": 0,
+          "value": "ruhig",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 1,
+        "weight": 1.0
+      },
+      {
+        "id": 8,
+        "value": "actionreich",
+        "evaluationValue": {
+          "id": 0,
+          "value": "actionreich",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 2,
+        "weight": 1.0
+      },
+      {
+        "id": 9,
+        "value": "gruselig",
+        "evaluationValue": {
+          "id": 0,
+          "value": "gruselig",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 3,
+        "weight": 1.0
+      },
+      {
+        "id": 10,
+        "value": "dramatisch",
+        "evaluationValue": {
+          "id": 0,
+          "value": "dramatisch",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 4,
+        "weight": 1.0
+      },
+      {
+        "id": 11,
+        "value": "humorvoll",
+        "evaluationValue": {
+          "id": 0,
+          "value": "humorvoll",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 5,
+        "weight": 1.0
+      },
+      {
+        "id": 12,
+        "value": "spannend",
+        "evaluationValue": {
+          "id": 0,
+          "value": "spannend",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 6,
+        "weight": 1.0
+      },
+      {
+        "id": 13,
+        "value": "lehrreich",
+        "evaluationValue": {
+          "id": 0,
+          "value": "lehrreich",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 7,
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "text": "Wie lange willst du maximal beschäftigt sein?",
+    "type": "SINGLE_CHOICE",
+    "choices": [
+      {
+        "id": 14,
+        "value": "sehr kurz",
+        "evaluationValue": {
+          "id": 0,
+          "value": "sehr kurz",
+          "evaluationType": {
+            "id": 0,
+            "type": "Dauer"
+          },
+          "evaluationTypeId": 4
+        },
+        "evaluationValueId": 18,
+        "weight": 1.0
+      },
+      {
+        "id": 15,
+        "value": "kurz",
+        "evaluationValue": {
+          "id": 0,
+          "value": "kurz",
+          "evaluationType": {
+            "id": 0,
+            "type": "Dauer"
+          },
+          "evaluationTypeId": 4
+        },
+        "evaluationValueId": 19,
+        "weight": 1.0
+      },
+      {
+        "id": 16,
+        "value": "mittel",
+        "evaluationValue": {
+          "id": 0,
+          "value": "mittel",
+          "evaluationType": {
+            "id": 0,
+            "type": "Dauer"
+          },
+          "evaluationTypeId": 4
+        },
+        "evaluationValueId": 20,
+        "weight": 1.0
+      },
+      {
+        "id": 17,
+        "value": "lang",
+        "evaluationValue": {
+          "id": 0,
+          "value": "lang",
+          "evaluationType": {
+            "id": 0,
+            "type": "Dauer"
+          },
+          "evaluationTypeId": 4
+        },
+        "evaluationValueId": 21,
+        "weight": 1.0
+      },
+      {
+        "id": 18,
+        "value": "unbegrenzt",
+        "evaluationValue": {
+          "id": 0,
+          "value": "unbegrenzt",
+          "evaluationType": {
+            "id": 0,
+            "type": "Dauer"
+          },
+          "evaluationTypeId": 4
+        },
+        "evaluationValueId": 22,
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "text": "Welche Settings sprechen dich an?",
+    "type": "MULTIPLE_CHOICE",
+    "choices": [
+      {
+        "id": 19,
+        "value": "Fantasie Welt",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Fantasy_Setting",
+          "evaluationType": {
+            "id": 0,
+            "type": "Setting"
+          },
+          "evaluationTypeId": 3
+        },
+        "evaluationValueId": 14,
+        "weight": 1.0
+      },
+      {
+        "id": 20,
+        "value": "Zukunft",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Zukunft",
+          "evaluationType": {
+            "id": 0,
+            "type": "Setting"
+          },
+          "evaluationTypeId": 3
+        },
+        "evaluationValueId": 15,
+        "weight": 1.0
+      },
+      {
+        "id": 21,
+        "value": "Gegenwart",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Gegenwart",
+          "evaluationType": {
+            "id": 0,
+            "type": "Setting"
+          },
+          "evaluationTypeId": 3
+        },
+        "evaluationValueId": 16,
+        "weight": 1.0
+      },
+      {
+        "id": 22,
+        "value": "Vergangenheit",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Vergangenheit",
+          "evaluationType": {
+            "id": 0,
+            "type": "Setting"
+          },
+          "evaluationTypeId": 3
+        },
+        "evaluationValueId": 17,
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "text": "Was sind deine Lieblings Creator",
+    "type": "MULTIPLE_CHOICE",
+    "choices": [
+      {
+        "id": 23,
+        "value": "Astrid Lindgren",
+        "evaluationValue": {
+          "id": 0,
+          "value": "humorvoll",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 5,
+        "weight": 0.5
+      },
+      {
+        "id": 24,
+        "value": "Stephen King",
+        "evaluationValue": {
+          "id": 0,
+          "value": "gruselig",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 3,
+        "weight": 0.5
+      },
+      {
+        "id": 25,
+        "value": "J. R. R. Tolkien",
+        "evaluationValue": {
+          "id": 0,
+          "value": "spannend",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 6,
+        "weight": 0.5
+      },
+      {
+        "id": 26,
+        "value": "Steven Spielberg",
+        "evaluationValue": {
+          "id": 0,
+          "value": "dramatisch",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 4,
+        "weight": 0.5
+      },
+      {
+        "id": 27,
+        "value": "Michael Moore",
+        "evaluationValue": {
+          "id": 0,
+          "value": "lehrreich",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 7,
+        "weight": 0.5
+      },
+      {
+        "id": 28,
+        "value": "Hayao Miyazaki",
+        "evaluationValue": {
+          "id": 0,
+          "value": "ruhig",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 1,
+        "weight": 0.5
+      },
+      {
+        "id": 29,
+        "value": "Michael Bay",
+        "evaluationValue": {
+          "id": 0,
+          "value": "actionreich",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 2,
+        "weight": 0.5
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "text": "Würdest du vom Auenland nach Mordor gehen?",
+    "type": "SINGLE_CHOICE",
+    "choices": [
+      {
+        "id": 30,
+        "value": "Ja",
+        "evaluationValue": {
+          "id": 0,
+          "value": "spannend",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 6,
+        "weight": 1.0
+      },
+      {
+        "id": 31,
+        "value": "Nein",
+        "evaluationValue": {
+          "id": 0,
+          "value": "spannend",
+          "evaluationType": {
+            "id": 0,
+            "type": "ActivityType"
+          },
+          "evaluationTypeId": 1
+        },
+        "evaluationValueId": 6,
+        "weight": 0.0
+      },
+      {
+        "id": 32,
+        "value": "Häh?",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Fantasy",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 11,
+        "weight": 0.0
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "text": "Was sind die besten Pizzatoppings?",
+    "type": "MULTIPLE_CHOICE",
+    "choices": [
+      {
+        "id": 33,
+        "value": "Hollandaise",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Horror",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 8,
+        "weight": 0.3
+      },
+      {
+        "id": 34,
+        "value": "Jalapenos",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Action",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 9,
+        "weight": 0.3
+      },
+      {
+        "id": 35,
+        "value": "Pasta",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Abenteuer",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 10,
+        "weight": 0.3
+      },
+      {
+        "id": 36,
+        "value": "Gummibärsaft",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Fantasy",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 11,
+        "weight": 0.3
+      },
+      {
+        "id": 37,
+        "value": "Nur Tomatensauce",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Krimi",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 12,
+        "weight": 0.3
+      },
+      {
+        "id": 38,
+        "value": "Ananas",
+        "evaluationValue": {
+          "id": 0,
+          "value": "Comedy",
+          "evaluationType": {
+            "id": 0,
+            "type": "Genre"
+          },
+          "evaluationTypeId": 2
+        },
+        "evaluationValueId": 13,
+        "weight": 0.3
+      }
+    ]
+  }
+]

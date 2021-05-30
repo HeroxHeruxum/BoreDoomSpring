@@ -21,11 +21,13 @@ public class EvaluationController {
 
     @PostMapping("/getResultData")
     public List<MediaResultValue> getMediaResultData(@RequestBody List<UserAnswer> userAnswers) {
+
         return evaluationService.getMediaResultData(userAnswers);
     }
 
     @PostMapping("/getResults")
     public List<Media> getResults(@RequestBody List<UserAnswer> userAnswers) {
+
         return evaluationService.getResults(userAnswers);
     }
 
