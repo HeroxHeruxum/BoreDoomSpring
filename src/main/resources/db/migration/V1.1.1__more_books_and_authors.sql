@@ -103,7 +103,7 @@ INSERT INTO book (id, setting_id, author_id, title, publishing_year, description
     der Seelenbrecher wieder aktiv, ausgerechnet in einer psychiatrischen Luxusklinik. Ärzte und Patienten müssen entsetzt feststellen, dass man den Täter unerkannt 
     eingeliefert hat, kurz bevor die Klinik durch einen Schneesturm völlig von der Außenwelt abgeschnitten wurde. Verzweifelt versuchen die Eingeschlossenen einander 
     zu schützen – doch in der Nacht des Grauens, die nun folgt, zeigt der Seelenbrecher, dass es kein Entkommen gibt ...',
-    16, 9, 360, 'https://assets.thalia.media/img/artikel/1877061f1e52df6434ea4ab5dfde014b8d88ccb8-00-00.jpeg');
+    16, 9, 360, 'https://assets.thalia.media/img/artikel/21cee4b0a4ef422d2fc858785dee2c2e46545b69-00-00.jpeg');
 INSERT INTO book (id, setting_id, author_id, title, publishing_year, description, min_age, duration, page_count, image_url)
   VALUES (20, 3, 5, 'Passagier 23', '2014-10-30', 
     'Jedes Jahr verschwinden auf hoher See rund 20 Menschen spurlos von Kreuzfahrtschiffen. Noch nie kam jemand zurück. Bis jetzt ... Martin Schwartz, Polizeipsychologe, 
@@ -112,7 +112,7 @@ INSERT INTO book (id, setting_id, author_id, title, publishing_year, description
     seltsamen alten Dame, die sich als Thrillerautorin bezeichnet: Er müsse unbedingt an Bord der Sultan kommen, es gebe Beweise dafür, was seiner Familie zugestoßen 
     ist. Nie wieder wollte Martin den Fuß auf ein Schiff setzen und doch folgt er dem Hinweis und erfährt, dass ein vor Wochen auf der Sultan verschwundenes Mädchen 
     wieder aufgetaucht ist. Mit dem Teddy seines Sohnes im Arm ...',
-    16, 10, 432, 'https://assets.thalia.media/img/artikel/3e6233ae8205fbbfe6dd4042310946264cdeed5b-00-00.jpeg');
+    16, 10, 432, 'https://m.media-amazon.com/images/I/51TKJl9xpBL.jpg');
 INSERT INTO book (id, setting_id, author_id, title, publishing_year, description, min_age, duration, page_count, image_url)
   VALUES (21, 3, 5, 'Der Heimweg', '2020-10-21',
     'Es ist Samstag, kurz nach 22.00 Uhr. Jules Tannberg sitzt am Begleittelefon. Ein ehrenamtlicher Telefonservice für Frauen, die zu später Stunde auf ihrem Heimweg 
@@ -127,7 +127,7 @@ INSERT INTO book (id, setting_id, author_id, title, publishing_year, description
     Schicksal bleibt ungeklärt. Vier Jahre später: Der trauernde Viktor hat sich in ein abgelegenes Ferienhaus zurückgezogen. Doch eine schöne Unbekannte spürt ihn 
     dort auf. Sie wird von Wahnvorstellungen gequält. Darin erscheint ihr immer wieder ein kleines Mädchen, das ebenso spurlos verschwindet wie einst Josy. Viktor 
     beginnt mit der Therapie, die mehr und mehr zum dramatischen Verhör wird …',
-    16, 6, 270, 'https://assets.thalia.media/img/artikel/752e65faa70ed121ed080e2f391e3d1c6552b383-00-00.jpeg');
+    16, 6, 270, 'https://m.media-amazon.com/images/I/41KY5X1TXKL.jpg');
 
 
 #Herr der Ringe
